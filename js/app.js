@@ -74,8 +74,10 @@ function updateMessage(){
         messageEl.textContent = "Player 2 it's your turn."
     } else if ((winner === false) && (tie === true)){
         messageEl.textContent ="It's a tie."
-     } else if (winner === true) {
-        messageEl.textContent= "You Win!"
+     } else if ((winner === true) && (turn === -1)) {
+        messageEl.textContent= "Player 1 WINS"
+     } else if ((winner === true) && (turn === 1)) {
+        messageEl.textContent= "Player 2 WINS"
      } else {
         messageEl.textContent = ""
      }
@@ -133,4 +135,28 @@ function switchPlayerTurn(){
     } else {
       return turn *= -1
     }
+}
+
+//Confetti function
+function Confetti(){
+    let duration = 1 * 1000;
+    let animationEnd = Date.now() + duration;
+    let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    
+    let interval = setInterval(function() {
+      let timeLeft = animationEnd - Date.now();
+    
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+    
+      let particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);   
 }
