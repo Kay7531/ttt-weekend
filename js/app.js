@@ -68,13 +68,15 @@ function updateBoard(){
 }
 
 function updateMessage(){
-    if ((winner === false) && (tie === false)){
-        messageEl.textContent =  "It is your turn."
-     } else if ((winner === false) && (tie === true)){
+    if ((winner === false) && (tie === false) && (turn === -1)){
+        messageEl.textContent =  "Player 1 it's your turn."
+     } else if ((winner === false) && (tie === false) && (turn === 1)){
+        messageEl.textContent = "Player 2 it's your turn."
+    } else if ((winner === false) && (tie === true)){
         messageEl.textContent ="It's a tie."
      } else if (winner === true) {
         messageEl.textContent= "You Win!"
-     }else {
+     } else {
         messageEl.textContent = ""
      }
 }
