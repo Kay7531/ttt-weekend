@@ -1,12 +1,18 @@
+
+
+
 body {
-    background-color: gray;
+  background: url(https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-concrete_1258-82890.jpg?w=996&t=st=1670821845~exp=1670822445~hmac=65dbc5b7a20117c8c4bdaa1635518067903314ab5bba36d525890739a429e5a6);
 	/* Use a system font, if none are available use an available sans-sarif   font */
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	margin: 0;
+
+	font-family: 'Rubik Storm', cursive;
+  color: white;
+	align-items: center;
+  margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  
 }
 
 section.board {
@@ -14,6 +20,7 @@ section.board {
   grid-template-rows: repeat(3, 10vmin);
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 0vmin;
+ 
 }
 
 div {
@@ -22,7 +29,7 @@ div {
   text-align: center;
   vertical-align: middle;
 }
+#reset {
+  margin: 10px;
 
-button {
-  
 }
